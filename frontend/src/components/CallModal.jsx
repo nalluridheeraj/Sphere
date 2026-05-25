@@ -1,9 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { callAPI } from '../services/api';
 import { PhoneOff, Mic, MicOff, Video, VideoOff, Loader2 } from 'lucide-react';
-import { API_BASE } from '../utils/media';
-
-const WS_BASE = API_BASE.replace(/^http/, 'ws');
+import { WS_BASE } from '../utils/media';
 
 const CallModal = ({ targetUsername, callType, currentUsername, onClose, roomId: existingRoomId }) => {
   const localVideoRef  = useRef(null);

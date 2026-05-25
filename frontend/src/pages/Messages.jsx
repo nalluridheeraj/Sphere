@@ -2,14 +2,12 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { messageAPI, mediaAPI, userAPI } from '../services/api';
-import { resolveUrl, API_BASE } from '../utils/media';
+import { resolveUrl, API_BASE, WS_BASE } from '../utils/media';
 import {
   MessageSquare, Search, Send, Image, Mic, MicOff, Paperclip,
   FileText, Play, Pause, X, Check, Ban, ArrowLeft, Loader2,
   Phone, Video as VideoIcon
 } from 'lucide-react';
-
-const WS_BASE = API_BASE.replace(/^http/, 'ws');
 
 /* ────────────────────────────────────────────────────────────────────────── */
 /*  Conversation List Item                                                   */

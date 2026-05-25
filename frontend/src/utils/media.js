@@ -5,7 +5,10 @@
  * - Empty/null → return empty string
  */
 
-const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:8000';
+export const API_BASE = import.meta.env.PROD ? '' : (import.meta.env.VITE_API_BASE || 'http://localhost:8000');
+export const WS_BASE = import.meta.env.PROD 
+  ? (window.location.protocol === 'https:' ? `wss://${window.location.host}` : `ws://${window.location.host}`) 
+  : (import.meta.env.VITE_WS_BASE || 'ws://localhost:8000');
 
 export const resolveUrl = (url) => {
   if (!url) return '';
@@ -16,4 +19,4 @@ export const resolveUrl = (url) => {
   return url;
 };
 
-export { API_BASE };
+// API_BASE and WS_BASE are already exported above

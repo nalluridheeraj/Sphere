@@ -13,9 +13,7 @@ import Messages from './pages/Messages';
 import Toast from './components/Toast';
 import IncomingCallModal from './components/IncomingCallModal';
 import CallModal from './components/CallModal';
-import { API_BASE } from './utils/media';
-
-const WS_BASE = API_BASE.replace(/^http/, 'ws');
+import { resolveUrl, WS_BASE } from './utils/media';
 
 const ProtectedRoute = ({ children }) => {
   const { user, loading } = useAuth();
