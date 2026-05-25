@@ -48,6 +48,13 @@ from fastapi.responses import FileResponse
 def health_check():
     return {"status": "online", "service": "Sphere API", "version": "2.0.0"}
 
+@app.get("/api/tunnel")
+def get_tunnel():
+    import os
+    if os.path.exists("/tmp/cloudflare.log"):
+        return {"log": open("/tmp/cloudflare.log").read()}
+    return {"log": "not found"}
+
 FRONTEND_DIST = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "frontend", "dist")
 
 @app.get("/{full_path:path}")
