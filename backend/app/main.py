@@ -25,7 +25,7 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:5173", 
         "http://127.0.0.1:5173",
-        "https://proud-sand-0c632c800.7.azurestaticapps.net" # <-- REPLACE THIS with your actual Azure Static Web App URL
+        "https://proud-sand-0c632c800.7.azurestaticapps.net" 
     ],
     allow_credentials=True,
     allow_methods=["*"],
